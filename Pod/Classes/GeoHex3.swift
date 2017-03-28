@@ -10,8 +10,8 @@ import Foundation
 import CoreLocation
 
 public class GeoHex3 {
-    private let geohex : KRGeoHex3
-    private var polygonCache : Polygon?
+    fileprivate let geohex : KRGeoHex3
+    fileprivate var polygonCache : Polygon?
 
     public init (x: Int64, y: Int64, level: UInt) {
         self.geohex = KRGeoHex3(x: x, y: y, level: level)
@@ -30,7 +30,7 @@ public class GeoHex3 {
     }
 
     public class func getHexSize(level: UInt) -> Double {
-        return KRGeoHex3.getHexSize(level)
+        return KRGeoHex3.getSize(level)
     }
 }
 
@@ -70,7 +70,7 @@ extension GeoHex3 {
             public let rigth : CLLocationCoordinate2D
         }
 
-        private init (geohex : GeoHex3) {
+        init (geohex : GeoHex3) {
             let polygon : [[String:NSNumber]] = geohex.geohex.getPolygon()
             assert(polygon.count == 6)
 
